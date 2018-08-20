@@ -11,6 +11,12 @@ Contact.prototype.fullName = function() {
   return this.firstName + " " + this.lastName;
 }
 
+function resetFields() {
+  $("input#first-name").val("");
+  $("input#last-name").val("");
+  $("input#email").val("");
+  $("input#phone").val("");
+}
 
 
 
@@ -33,9 +39,6 @@ $(document).ready(function(){
 
     $("ul#contacts").append("<li><span class='contacts'>" + newContact.fullName() + "</span></li>");
 
-    $("input#first-name").val("");
-    $("input#last-name").val("");
-
     $(".contacts").last().click(function(){
       $("#show-contact").show();
       $("#show-contact h2").text(newContact.firstName);
@@ -44,6 +47,6 @@ $(document).ready(function(){
       $(".email").text(newContact.email);
       $(".phone").text(newContact.phone);
     });
-
+    resetFields();
   });
 });
