@@ -17,9 +17,12 @@
     this.state = state;
   }
 
-
   Contact.prototype.fullName = function() {
     return this.firstName + " " + this.lastName;
+  }
+
+  Address.prototype.fullAddress = function() {
+    return this.street + ", " + this.city + ", " + this.state;
   }
 
   function resetFields() {
@@ -87,7 +90,7 @@ $(document).ready(function(){
       $(".phone").text(newContact.phone);
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address) {
-        $("ul#addresses").append("<li>" + address.street + ", " + address.city + " " + address.state + "</li>");
+        $("ul#addresses").append("<li>" + address.fullAddress() + "</li>");
       });
 
 
